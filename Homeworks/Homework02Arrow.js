@@ -29,10 +29,8 @@ parImparFlecha(numero);
 // Las funciones de flecha tienen una sintaxis más concisa, especialmente para funciones pequeñas o de una sola línea.
 // Las funciones regulares son mas flexibles en cuanto a su uso, mientras que las funciones de flecha son más adecuadas para funciones pequeñas.
 
-// let suma = (a, b) => a + b;
+let suma = (a, b) => a + b;
 
-/* Esta función de flecha es una forma más corta de:
-let suma = function(a, b) {
+let sumaRegular = function(a, b) {
   return a + b;
 };
-*/
