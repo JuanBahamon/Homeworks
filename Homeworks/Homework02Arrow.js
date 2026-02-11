@@ -1,21 +1,25 @@
 // Funcion regular (Se puede llamar antes de ser declarada)
+const numero = 6;
 
 function parImparNormal(numero) {
     if (numero % 2 === 0) {
-        console.log(numero + "es un numero par")
+        console.log(numero + " es un numero par")
     }else{
-        console.log(numero + "es un numero impar")
+        console.log(numero + " es un numero impar")
     }
 }
 
 // funcion de flecha (Se tiene que declarar antes de ser llamada)
 const parImparFlecha = (numero) => {
     if (numero % 2 === 0) {
-        console.log(numero + "es un numero par")
+        console.log(numero + " es un numero par")
     }else{
-        console.log(numero + "es un numero impar")
+        console.log(numero + " es un numero impar")
     }
 }
+
+parImparNormal(numero);
+parImparFlecha(numero);
 
 // ---------- Diferencias ------------
 
@@ -25,7 +29,7 @@ const parImparFlecha = (numero) => {
 // Las funciones de flecha tienen una sintaxis más concisa, especialmente para funciones pequeñas o de una sola línea.
 // Las funciones regulares son mas flexibles en cuanto a su uso, mientras que las funciones de flecha son más adecuadas para funciones pequeñas.
 
-let suma = (a, b) => a + b;
+// let suma = (a, b) => a + b;
 
 /* Esta función de flecha es una forma más corta de:
 let suma = function(a, b) {
