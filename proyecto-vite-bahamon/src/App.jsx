@@ -1,35 +1,48 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import ListaContactos from './components/ListaContactos'
+import FormularioContacto from './components/FormularioContacto'
+import Cargador from './components/Cargador'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [contactos, setContactos] = useState([
+    { id: 1, nombre: 'Juan', telefono: '123456789' },
+    { id: 2, nombre: 'María', telefono: '987654321' },
+    { id: 3, nombre: 'Pedro', telefono: '555555555' }
+  ]);
+
+  const [cargando, setCargando] = useState(true);
+
+  setTimeout(() => {
+    setCargando(false);
+  }, 2000);
+
+  const alEliminarContacto = (index) => {
+    setContactos(contactos.filter((contacto, i) => i !== index));
+  };
+
+  const alAgregarContacto = (nuevoContacto) => {
+    setContactos([...contactos, { id: Date.now(), ...nuevoContacto }]);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Contactos</h1>
+
+      {cargando ? (
+        <Cargador />
+      ) : (
+        <>
+          <ListaContactos 
+            contactos={contactos} 
+            alEliminarContacto={alEliminarContacto} />
+          <FormularioContacto 
+            alAgregarContacto={alAgregarContacto} />
+        </>
+      )}
+
+    </div>
+  );
 }
 
-export default App
+export default App;
