@@ -1,0 +1,51 @@
+.reproductor-card {
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  color: #1a1a1a;
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+.info-cancion {
+  margin: 25px 0;
+  border: 2px solid #000000;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  background-color: #fafafa;
+}
+
+.info-cancion p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.boton-next {
+  width: 100%;
+  padding: 12px;
+  background-color: #111;
+  color: #ffffff; /* ✅ antes: #000000 — texto blanco sobre fondo oscuro */
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.boton-next:hover:not(:disabled) {
+  transform: scale(1.02);
+  background-color: #333;
+}
+
+.boton-next:disabled {
+  background-color: #000000;
+  cursor: not-allowed;
+}
+
+.footer-text {
+  margin-top: 15px;
+  color: #000000;
+  font-size: 0.8rem;
+}

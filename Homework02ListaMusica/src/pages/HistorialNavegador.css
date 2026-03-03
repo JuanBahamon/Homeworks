@@ -1,0 +1,40 @@
+.browser-container {
+  background-color: #ffffff;
+  border: 1px solid #dfe1e5;
+  color: #000;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.url-bar {
+  background-color: #f1f3f4;
+  border-radius: 20px;
+  padding: 8px 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  color: #202124;
+}
+
+.btn-nav {
+  background: none;
+  border: 1px solid #000000;
+  background-color: black;
+  border-radius: 15px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.btn-nav:hover:not(:disabled) {
+  background-color: #616161;
+  border-color: #bdc1c6;
+}
+
+.btn-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
