@@ -1,121 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import ListaLibros from './components/ListaLibros';
+import FormularioLibros from './components/FormularioLibros';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+class Pila {
+  constructor() {
+    this.libros = [];
+  }
+  push(valor) {
+    this.libros.push(valor);
+  }
+  pop() {
+    return this.libros.length > 0 ? this.libros.pop() : null;
+  }
+  peek() {
+    return this.libros.length > 0
+      ? this.libros[this.libros.length - 1]
+      : null;
+  }
+  isEmpty() {
+    return this.libros.length === 0;
+  }
+  size() {
+    return this.libros.length;
+  }
 }
 
-export default App
+  const miPila = new Pila();
+  miPila.push({ nombre: 'Wigetta y el Baculo Dorado', isbn: '978-1234567890', autor: 'Vegetta777 y Willyrex', editorial: 'Editorial Pinguino' });
+  miPila.push({ nombre: 'El Secreto de la Isla', isbn: '978-0987654321', autor: 'Luna y Sol', editorial: 'Editorial Estrella' });
+  miPila.push({ nombre: 'La Aventura del Bosque Encantado', isbn: '978-1122334455', autor: 'Bosque y Magia', editorial: 'Editorial Encantada' });
+  miPila.push({ nombre: 'El Misterio del Castillo', isbn: '978-5566778899', autor: 'Castillo y Sombra', editorial: 'Editorial Misterio' });
+
+function App() {
+
+  const [libros, setLibros] = useState([...miPila.libros].reverse());
+
+  const agregarLibro = (libro) => {
+    miPila.push(libro);
+    setLibros([...miPila.libros].reverse());
+  };
+
+  return (
+    <div className="contenedor">
+      <h1>Pila de Libros</h1>
+      <ListaLibros libros={libros} />
+      <FormularioLibros enAgregar={agregarLibro} />
+    </div>
+  );
+}
+
+export default App;
