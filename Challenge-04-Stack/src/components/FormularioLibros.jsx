@@ -18,7 +18,6 @@ function FormularioLibros({ enAgregar }) {
         setEditorial('');
     };
 
-
     return (
         <div>
             <h2>Agregar Libro</h2>
