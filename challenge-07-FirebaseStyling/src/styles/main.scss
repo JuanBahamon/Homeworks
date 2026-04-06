@@ -1,0 +1,134 @@
+$color-principal: #6366f1;
+$color-fondo: #f1f5f9;
+$color-texto: #334155;
+$blanco: #ffffff;
+$borde: #d1d5db;
+
+@mixin tarjeta {
+  background: $blanco;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+body {
+  background-color: $color-fondo;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $color-texto;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.contenedor, .auth-container {
+  @include tarjeta;
+  width: 100%;
+  max-width: 500px;
+
+  h1, h2 {
+    color: $color-principal;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #475569;
+
+    &.error-message {
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid $borde;
+    border-radius: 8px;
+    box-sizing: border-box; 
+    
+    &:focus {
+      outline: none;
+      border-color: $color-principal;
+      box-shadow: 0 0 0 3px rgba($color-principal, 0.2);
+    }
+  }
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: $color-principal;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: darken($color-principal, 10%);
+  }
+
+  &.btn-salir {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    margin-bottom: 2rem;
+    
+    &:hover {
+      background: #ef4444;
+      color: white;
+    }
+  }
+}
+
+.item-tarea {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 5px solid $color-principal;
+
+  p {
+    margin-bottom: 0.2rem;
+    font-weight: normal;
+  }
+
+  .botones-accion {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+    button {
+      width: auto;
+      flex: 1;
+      padding: 8px;
+      font-size: 0.8rem;
+      
+      &:last-child {
+        background: #94a3b8;
+        &:hover { background: #64748b; }
+      }
+    }
+  }
+}
+
+.switch-auth {
+  margin-top: 1.5rem;
+  text-align: center;
+  a {
+    color: $color-principal;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
