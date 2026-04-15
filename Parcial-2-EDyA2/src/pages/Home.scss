@@ -1,0 +1,46 @@
+$primary: #000000;
+$secondary: #000000;
+$accent: #727575;
+$light: #cadcfc;
+
+.home-container {
+  min-height: 100vh;
+  background-color: #f2f2f2;
+
+  .home-header {
+    background-color: $primary;
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .home-body {
+    padding: 32px;
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  span {
+    font-size: 14px;
+    color: $light;
+  }
+
+  button {
+    background: $secondary;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+      background: $accent;
+    }
+  }
+}
