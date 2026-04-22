@@ -1,0 +1,44 @@
+.container {
+  padding: 2rem;
+}
+
+.titulo {
+  margin-bottom: 1rem;
+}
+
+.leyenda {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 13px;
+}
+
+.grafo-wrapper {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ciudades-section {
+  margin-top: 2rem;
+}
+
+.ciudades-section h2 {
+  margin-bottom: 1rem;
+}
+
+.ciudades-section select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.personas-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.personas-lista li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
