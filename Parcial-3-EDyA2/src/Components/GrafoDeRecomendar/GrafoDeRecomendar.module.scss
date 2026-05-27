@@ -1,0 +1,62 @@
+// GrafoDeRecomendar.module.scss
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.grafoRecomendar {
+  @include m.flex-columna;
+  gap: v.$espacio-md;
+}
+
+.titulo {
+  @include m.seccion-titulo;
+}
+
+.vacio {
+  font-size: 0.85rem;
+  color: v.$color-texto-terciario;
+  text-align: center;
+  padding: v.$espacio-lg 0;
+}
+
+.origen {
+  @include m.flex-columna;
+  gap: 2px;
+  padding: v.$espacio-sm v.$espacio-md;
+  background-color: v.$color-fondo-tarjeta;
+  border-left: 3px solid v.$color-acento;
+  border-radius: v.$radio-sm;
+}
+
+.origenLabel {
+  font-size: 0.72rem;
+  color: v.$color-texto-terciario;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.origenNombre {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: v.$color-acento;
+}
+
+.lista {
+  @include m.flex-columna;
+  gap: v.$espacio-sm;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: v.$espacio-sm;
+}
+
+.distancia {
+  font-size: 0.5rem;
+  color: v.$color-acento;
+  letter-spacing: -2px;
+  text-align: center;
+  opacity: 0.7;
+}

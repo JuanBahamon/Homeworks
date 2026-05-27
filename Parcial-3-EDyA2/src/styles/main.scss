@@ -1,0 +1,99 @@
+@use './variables' as v;
+@use './mixins' as m;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: v.$fuente-principal;
+  background-color: v.$color-fondo;
+  color: v.$color-texto-primario;
+  min-height: 100vh;
+}
+
+.app-cargando {
+  @include m.flex-centro;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: v.$color-texto-secundario;
+}
+
+.app {
+  @include m.flex-columna;
+  min-height: 100vh;
+}
+
+.app-header {
+  @include m.flex-entre;
+  align-items: center;
+  gap: v.$espacio-md;
+  padding: v.$espacio-md v.$espacio-lg;
+  background-color: v.$color-fondo-tarjeta;
+  border-bottom: 1px solid v.$color-borde;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: v.$espacio-sm;
+  flex-shrink: 0;
+}
+
+.app-logo-icono {
+  font-size: 1.4rem;
+  color: v.$color-acento;
+}
+
+.app-logo-texto {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: v.$color-texto-primario;
+  white-space: nowrap;
+}
+
+.app-limpiar-seleccion {
+  background: none;
+  border: 1px solid v.$color-borde;
+  color: v.$color-texto-secundario;
+  padding: v.$espacio-xs v.$espacio-sm;
+  border-radius: v.$radio-full;
+  cursor: pointer;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: all v.$transicion;
+
+  &:hover {
+    border-color: v.$color-acento;
+    color: v.$color-acento;
+  }
+}
+
+.app-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: v.$espacio-lg;
+  padding: v.$espacio-lg;
+  flex: 1;
+  align-items: start;
+}
+
+.app-columna {
+  @include m.flex-columna;
+  gap: v.$espacio-md;
+}
+
+@media (max-width: 768px) {
+  .app-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header {
+    flex-wrap: wrap;
+  }
+}
