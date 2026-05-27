@@ -1,0 +1,120 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.barra-busqueda {
+  position: relative;
+  flex: 1;
+  max-width: 480px;
+}
+
+.barra-busqueda-contenedor {
+  @include m.flex-centro;
+  gap: v.$espacio-sm;
+  background-color: v.$color-fondo-tarjeta;
+  border: 1px solid v.$color-borde;
+  border-radius: v.$radio-full;
+  padding: v.$espacio-sm v.$espacio-md;
+  transition: border-color v.$transicion;
+
+  &:focus-within {
+    border-color: v.$color-acento;
+  }
+}
+
+.barra-busqueda-icono {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.barra-busqueda-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: v.$color-texto-primario;
+  font-family: v.$fuente-principal;
+  min-width: 0;
+
+  &::placeholder {
+    color: v.$color-texto-terciario;
+  }
+}
+
+.barra-busqueda-limpiar {
+  background: none;
+  border: none;
+  color: v.$color-texto-terciario;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color v.$transicion;
+
+  &:hover {
+    color: v.$color-texto-primario;
+  }
+}
+
+.barra-busqueda-sugerencias {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: v.$color-fondo-tarjeta;
+  border: 1px solid v.$color-borde;
+  border-radius: v.$radio-md;
+  overflow: hidden;
+  box-shadow: v.$sombra-tarjeta;
+  z-index: 200;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include m.scrollbar-custom;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.barra-busqueda-sugerencia {
+  @include m.flex-entre;
+  gap: v.$espacio-sm;
+  padding: v.$espacio-sm v.$espacio-md;
+  cursor: pointer;
+  transition: background-color v.$transicion;
+
+  &:hover {
+    background-color: v.$color-fondo-hover;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid v.$color-borde;
+  }
+}
+
+.barra-busqueda-sugerencia-portada {
+  width: 36px;
+  height: 36px;
+  border-radius: v.$radio-sm;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.barra-busqueda-sugerencia-texto {
+  @include m.flex-columna;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.barra-busqueda-sugerencia-titulo {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: v.$color-texto-primario;
+  @include m.texto-truncado;
+}
+
+.barra-busqueda-sugerencia-artista {
+  font-size: 0.75rem;
+  color: v.$color-texto-secundario;
+  @include m.texto-truncado;
+}

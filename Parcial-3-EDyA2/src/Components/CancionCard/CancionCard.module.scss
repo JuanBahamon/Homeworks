@@ -1,0 +1,72 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.cancion-card {
+  @include m.tarjeta-base;
+  @include m.flex-entre;
+  gap: v.$espacio-sm;
+  padding: v.$espacio-sm v.$espacio-md;
+  cursor: pointer;
+  width: 100%;
+
+  &--activa {
+    border-color: v.$color-acento !important;
+    background-color: v.$color-acento-suave !important;
+    box-shadow: v.$sombra-activa;
+  }
+}
+
+.cancion-card-portada {
+  width: 48px;
+  height: 48px;
+  border-radius: v.$radio-sm;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cancion-card-info {
+  @include m.flex-columna;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.cancion-card-titulo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: v.$color-texto-primario;
+  @include m.texto-truncado;
+}
+
+.cancion-card-artista {
+  font-size: 0.78rem;
+  color: v.$color-texto-secundario;
+  @include m.texto-truncado;
+}
+
+.cancion-card-genero {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: v.$radio-full;
+  width: fit-content;
+  letter-spacing: 0.03em;
+}
+
+.cancion-card-meta {
+  @include m.flex-columna;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.cancion-card-reproducciones {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: v.$color-acento;
+}
+
+.cancion-card-duracion {
+  font-size: 0.72rem;
+  color: v.$color-texto-terciario;
+}
